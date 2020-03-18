@@ -1,0 +1,42 @@
+
+
+.m-topbar .m-topbar__nav.m-nav>.m-nav__item.m-topbar__user-profile>.m-nav__link .m-topbar__welcome {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #b1b5c1;
+}
+.m-topbar .m-topbar__nav.m-nav>.m-nav__item.m-topbar__user-profile>.m-nav__link .m-topbar__username {
+    display: table-cell;
+    vertical-align: middle;
+    text-transform: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    color: #f33e5c;
+    padding-right: 10px;
+}
+.has-danger .form-control-feedback {
+    top: auto !important;
+    right: auto !important;
+    line-height: 10px !important;
+}
+
+.has-error .checkbox, .has-error .checkbox-inline, .has-error .control-label, .has-error .help-block, .has-error .radio, .has-error .radio-inline, .has-error.checkbox label, .has-error.checkbox-inline label, .has-error.radio label, .has-error.radio-inline label {
+    color: #ff0000 !important;
+}
+.caret {
+    border-top: 0 !important;
+}
+
+.no-sortable:before {
+    content: none !important;
+}
+.no-sortable:after {
+    content: none !important;
+}
+.bootstrap-select .dropdown-toggle .filter-option-inner {
+    overflow: hidden;
+    color: #575962;
+}
