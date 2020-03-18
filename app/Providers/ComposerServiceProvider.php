@@ -20,13 +20,13 @@ class ComposerServiceProvider extends ServiceProvider
         $route      = null;
         $route_url  = null;
         // local
-        if(
-            ($route_name[2] === 'public' && count($route_name) > 4) ||
-            (count($route_name) === 3)
-        )
+        if( isset($route_name[2]) && $route_name[2] === 'public' && count($route_name) > 4)
         {
             $route      = $route_name[3].'.'.$route_name[4];
             $route_url  = URL::to($route_name[3].'/'.$route_name[4]);
+        } elseif(count($route_name) === 3 || count($route_name) === 4) {
+            $route      = $route_name[1].'.'.$route_name[2];
+            $route_url  = URL::to($route_name[1].'/'.$route_name[2]);
         }
 
         view()->share('route_index', $route.'.index');

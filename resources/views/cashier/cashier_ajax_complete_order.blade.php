@@ -70,11 +70,8 @@ License: You must have a valid license purchased only from themeforest(the above
             }
             .back_dashboard{
                 position: absolute;
-                right: 10px;
-                top: 10px;
-                list-style: none;    padding: 0;
-                margin: 0;
-                z-index: 1031;
+                left: 20px;
+                bottom: 20px;
             }
         </style>
     </head>
@@ -110,12 +107,16 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div>           
+        </div>
+    </header>
+    <br />
+        <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body" style="margin: 10px 100px;">
             
-            <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general m-stack--fluid">
-                <div class="back_dashboard">
+            <div class="row">
+                <div class="back_dashboard col-md-12">
                     <ul class="m-topbar__nav m-nav m-nav--inline">
-                        <a href="{{ route('dashboard') }}" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
+                        <a href="{{ route('dashboard') }}" class="btn btn-outline-success m-btn m-btn--icon m-btn--pill">
                             <span>
                                 <i class="fa fa-arrow-alt-circle-left"></i>
                                 <span>Back to Dashboard</span>
@@ -123,13 +124,6 @@ License: You must have a valid license purchased only from themeforest(the above
                         </a>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </header>
-    <br />
-        <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body" style="margin: 100px 100px;">
-
-            <div class="row">
                     <div class="col-md-6">  
                         <!--begin::Portlet-->
                         <div class="m-portlet">
