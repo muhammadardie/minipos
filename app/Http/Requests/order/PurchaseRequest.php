@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Requests\purchasing;
+namespace App\Http\Requests\order;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-use Illuminate\Validation\Rule;
-
-class Purchase_orderRequest extends FormRequest
+class PurchaseRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

@@ -6,7 +6,7 @@ namespace App\Models\master_data;
 use Venturecraft\Revisionable\Revisionable;
 use App\Traits\Scopes;
 
-class shift extends Revisionable
+class Shift extends Revisionable
 {
     use Scopes;
     

@@ -64,60 +64,6 @@ class Menu_permissionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $role           = Role::find($role_id);
-
-        // get all permission name from master
-        $m_permission   = Permission::orderBy('id', 'ASC')->get();
-
-        // get list menu_id where $role_id
-        $role_menu      = Role_menu::where('role_id', $role_id);
-        $list_menu      = $role_menu->pluck('menu_id')->toArray();
-
-
-        // get menu (recursive)
-        $menu = Menu::with(['childrenRecursive' => function($query) use($list_menu){
-            // submenu1
-            $query->whereIn('id', $list_menu);
-            // submenu2
-            $query->with(['childrenRecursive' => function($query1) use($list_menu){
-                $query1->whereIn('id', $list_menu);
-            }]);
-        }])->where([['parent', 0], ['active', 1]])->whereIn('id', $list_menu)->orderBy('order', 'asc')->get();
-
-
-        // get permission_id where $role_id
-        $menu_permission = $role_menu->with('menu_permission')->get();
-        $list_permission = array();
-        foreach ($menu_permission as $key => $value) {
-            $list_permission[$value->menu_id] = array();
-            $array_group    = array();
-
-            $permission_id  = $value->menu_permission->toArray(); 
-            $permission_id1 = array_column($permission_id, 'permission_id'); // array_column() = multiarray to singlearray
-
-            // update
-            $array_group['role_menu_id']        = $value->role_menu_id;
-            $array_group['permission_id']       = $permission_id1;
-            $list_permission[$value->menu_id]   = $array_group;
-        }
-
-        Session::put('list_permission', $list_permission);
-
-        $route_index    = $this->folder.'.'.$this->controller.'.index';
-        $route_update   = $this->folder.'.'.$this->controller.'.update';
-        return view($this->folder.'.'.$this->controller.'_'.$this->function,
-                    compact('role', 'm_permission', 'list_menu', 'menu', 'list_permission', 'route_index', 'route_update')
-                );
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $role_id

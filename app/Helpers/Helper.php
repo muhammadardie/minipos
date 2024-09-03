@@ -276,12 +276,8 @@ class Helper
         $name        = $name == null ? 'noimage' : $name;
         $exists      = Storage::exists($folder.'/'.$name);
         $src         = $exists ? \Storage::get($folder.'/'.$name) : \Storage::get('default.jpeg');
-        $cachedImage = \Image::cache(function($image) use ($src,$width,$height) {
-                            return $image->make($src)->resize($width,$height);
-                        }, 10, true);
-        $image       = $cachedImage->encode('data-url');
 
-        return $image;
+        return $src;
     }
 
     /**

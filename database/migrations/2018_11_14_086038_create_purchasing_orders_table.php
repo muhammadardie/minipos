@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreatePurchasingOrdersTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -26,21 +26,17 @@ class CreatePurchasingOrdersTable extends Migration
             // employee_id foreign tbl:employees 
             $table->foreign('employee_id')
                   ->references('id')->on('employees');
-
-            // supplier foreign tbl:suppliers 
-            $table->foreign('supplier_id')
-                  ->references('id')->on('suppliers');
+            
                   
         });
     }
-
     /**
      * Reverse the migrations.
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('purchasing_orders');
     }
-}
+};

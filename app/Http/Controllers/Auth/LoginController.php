@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
-use Session;
-use App\User;
 
 class LoginController extends Controller
 {
@@ -21,10 +18,7 @@ class LoginController extends Controller
     |
     */
 
-    // use AuthenticatesUsers;
-    use AuthenticatesUsers {
-        logout as performLogout;
-    }
+    use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
@@ -41,20 +35,6 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-    }
-
-    /* Login with username instead of email */
-    // public function username()
-    // {
-    //     return 'username';
-    // }
-
-    /**
-    * Logout and then redirect
-    */
-    public function logout(Request $request)
-    {
-        $this->performLogout($request);
-        return redirect()->route('login');
+        $this->middleware('auth')->only('logout');
     }
 }

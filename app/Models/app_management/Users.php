@@ -2,20 +2,10 @@
 
 namespace App\Models\app_management;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-// revision log
-use Venturecraft\Revisionable\Revisionable;
-
-class Users extends Revisionable
+class Users extends Authenticatable
 {
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
-
     public function users_role()
     {
     	return $this->hasOne('App\Models\app_management\User_role', 'user_id', 'id');

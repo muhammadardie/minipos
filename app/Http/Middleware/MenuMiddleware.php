@@ -7,27 +7,23 @@ use Auth;
 use View;
 use URL;
 use Route;
-use Session;
 
 use App\Models\app_management\User_role;
 use App\Models\app_management\Role_menu;
 use App\Models\app_management\Menu;
-use App\Models\app_management\Permission;
 
 class MenuMiddleware
 {
+
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle($request, Closure $next)
     {
         // get role_id
         $user_role      = User_role::where('user_id', Auth::id())->first(); // get only first row
-
         // check
         if (!$user_role) {
             die("User Role doesn't exist");
