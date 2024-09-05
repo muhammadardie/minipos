@@ -21,10 +21,10 @@ return new class extends Migration
             $table->integer('supplier_id');
             $table->string('name', 150);
             $table->string('code', 30);
-            $table->decimal('cost', 20,7);
+            $table->decimal('cost', 20,2);
             $table->integer('stock')->nullable();
             $table->date('release_date');
-            $table->decimal('price', 20,7);
+            $table->decimal('price', 20,2);
             $table->string('storage', 255);
             $table->string('image', 255)->nullable();
             $table->text('description')->nullable();

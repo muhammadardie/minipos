@@ -8078,78 +8078,78 @@ INSERT INTO "public"."brands" VALUES (1, 'So Good', 'So Good', '2019-06-12 17:45
 -- ----------------------------
 -- Records of products
 -- ----------------------------
-INSERT INTO "public"."products" VALUES (3, 1, 1, 1, 1, 'So Good Bakso', 'SG02', 18000.0000000, 13, '2019-06-25', 20000.0000000, 'Lemari A1-A2', 'PRODUCT_3_1560339580.png', NULL, '2019-06-12 18:39:40', '2019-07-24 14:13:03', NULL, NULL);
-INSERT INTO "public"."products" VALUES (2, 1, 1, 1, 1, 'So Good Premium Chicken Nugget', 'SG01', 12500.0000000, 10, '2019-06-17', 15000.0000000, 'Lemari A1-A2', 'PRODUCT_2_1560338414.png', NULL, '2019-06-12 18:20:14', '2019-07-24 14:13:03', NULL, NULL);
+INSERT INTO "public"."products" VALUES (3, 1, 1, 1, 1, 'So Good Bakso', 'SG02', 18000.00, 13, '2019-06-25', 20000.00, 'Lemari A1-A2', 'https://res.cloudinary.com/dtsextu5d/image/upload/v1725561005/minipos_product/FA_SG_Bakso_Sapi_120gr_mifx8i.png', NULL, '2019-06-12 18:39:40', '2019-07-24 14:13:03', NULL, NULL);
+INSERT INTO "public"."products" VALUES (2, 1, 1, 1, 1, 'So Good Premium Chicken Nugget', 'SG01', 12500.00, 10, '2019-06-17', 15000.00, 'Lemari A1-A2', 'https://res.cloudinary.com/dtsextu5d/image/upload/v1725561076/minipos_product/stick_premium_eoxwqs.png', NULL, '2019-06-12 18:20:14', '2019-07-24 14:13:03', NULL, NULL);
 
 
 
 -- ----------------------------
 -- Records of cashiers
 -- ----------------------------
-INSERT INTO "public"."cashiers" VALUES (1, 2, 1, 1200000.0000000, 8600.0000000, 1208600.0000000, '{"0":{"name":"100000","value":"12"},"1":{"name":"50000","value":null},"2":{"name":"20000","value":null},"3":{"name":"10000","value":null},"4":{"name":"5000","value":null},"5":{"name":"2000","value":null},"6":{"name":"1000","value":null}}', '{"0":{"name":"1000","value":"2"},"1":{"name":"500","value":"12"},"2":{"name":"200","value":"2"},"3":{"name":"100","value":"2"}}', 200000.0000000, 1000.0000000, 201000.0000000, '{"0":{"name":"100000","value":"2"},"1":{"name":"50000","value":null},"2":{"name":"20000","value":null},"3":{"name":"10000","value":null},"4":{"name":"5000","value":null},"5":{"name":"2000","value":null},"6":{"name":"1000","value":null}}', '{"0":{"name":"1000","value":"1"},"1":{"name":"500","value":null},"2":{"name":"200","value":null},"3":{"name":"100","value":null}}', 'f', 't', 't', NULL, '2019-06-12 15:14:40', '2019-06-13 10:57:48');
-INSERT INTO "public"."cashiers" VALUES (2, 1, 1, 1100000.0000000, 12500.0000000, 1112500.0000000, '{"0":{"name":"100000","value":"10"},"1":{"name":"50000","value":"2"},"2":{"name":"20000","value":null},"3":{"name":"10000","value":null},"4":{"name":"5000","value":null},"5":{"name":"2000","value":null},"6":{"name":"1000","value":null}}', '{"0":{"name":"1000","value":"12"},"1":{"name":"500","value":"1"},"2":{"name":"200","value":null},"3":{"name":"100","value":null}}', 2614000.0000000, 12900.0000000, 2626900.0000000, '{"0":{"name":"100000","value":"20"},"1":{"name":"50000","value":"10"},"2":{"name":"20000","value":"4"},"3":{"name":"10000","value":"2"},"4":{"name":"5000","value":"2"},"5":{"name":"2000","value":"1"},"6":{"name":"1000","value":"2"}}', '{"0":{"name":"1000","value":"10"},"1":{"name":"500","value":"5"},"2":{"name":"200","value":"2"},"3":{"name":"100","value":null}}', 'f', 't', 't', NULL, '2019-06-13 10:58:08', '2019-08-16 11:54:31');
+INSERT INTO "public"."cashiers" VALUES (1, 2, 1, 1200000.00, 8600.00, 1208600.00, '{"0":{"name":"100000","value":"12"},"1":{"name":"50000","value":"1"},"2":{"name":"20000","value":null},"3":{"name":"10000","value":"1"},"4":{"name":"5000","value":null},"5":{"name":"2000","value":null},"6":{"name":"1000","value":null}}', '{"0":{"name":"1000","value":"2"},"1":{"name":"500","value":"12"},"2":{"name":"200","value":"2"},"3":{"name":"100","value":"2"}}', 1260000.00, 8600.00, 1268600.00, '{"0":{"name":"100000","value":"2"},"1":{"name":"50000","value":null},"2":{"name":"20000","value":null},"3":{"name":"10000","value":null},"4":{"name":"5000","value":null},"5":{"name":"2000","value":null},"6":{"name":"1000","value":null}}', '{"0":{"name":"1000","value":"1"},"1":{"name":"500","value":null},"2":{"name":"200","value":null},"3":{"name":"100","value":null}}', 'f', 't', 't', NULL, '2019-06-12 15:14:40', '2019-06-13 10:57:48');
+INSERT INTO "public"."cashiers" VALUES (2, 1, 1, 1100000.00, 12500.00, 1112500.00, '{"0":{"name":"100000","value":"11"},"1":{"name":"50000","value":"2"},"2":{"name":"20000","value":"5"},"3":{"name":"10000","value":"3"},"4":{"name":"5000","value":"5"},"5":{"name":"2000","value":"5"},"6":{"name":"1000","value":null}}', '{"0":{"name":"1000","value":"12"},"1":{"name":"500","value":"1"},"2":{"name":"200","value":null},"3":{"name":"100","value":null}}', 2614000.00, 12900.00, 1365000.00, '{"0":{"name":"100000","value":"20"},"1":{"name":"50000","value":"10"},"2":{"name":"20000","value":"4"},"3":{"name":"10000","value":"2"},"4":{"name":"5000","value":"2"},"5":{"name":"2000","value":"1"},"6":{"name":"1000","value":"2"}}', '{"0":{"name":"1000","value":"10"},"1":{"name":"500","value":"5"},"2":{"name":"200","value":"2"},"3":{"name":"100","value":null}}', 'f', 't', 't', NULL, '2019-06-13 10:58:08', '2019-08-16 11:54:31');
 
 
 -- ----------------------------
 -- Records of cashier_transactions
 -- ----------------------------
-INSERT INTO "public"."cashier_transactions" VALUES (1, 1, NULL, '12.06.19.000001', 60000.0000000, 60000.0000000, NULL, NULL, NULL, NULL, '2019-06-12 18:41:41', '2019-06-12 18:41:41');
-INSERT INTO "public"."cashier_transactions" VALUES (2, 2, NULL, '13.06.19.000001', 35000.0000000, 40000.0000000, 5000.0000000, NULL, NULL, NULL, '2019-06-13 10:59:21', '2019-06-13 10:59:21');
-INSERT INTO "public"."cashier_transactions" VALUES (3, 2, NULL, '02.07.19.000002', 50000.0000000, 50000.0000000, NULL, NULL, NULL, NULL, '2019-07-02 13:38:27', '2019-07-02 13:38:27');
-INSERT INTO "public"."cashier_transactions" VALUES (4, 2, NULL, '02.07.19.000003', 75000.0000000, 75000.0000000, NULL, NULL, NULL, NULL, '2019-07-02 13:40:07', '2019-07-02 13:40:07');
-INSERT INTO "public"."cashier_transactions" VALUES (5, 2, NULL, '23.07.19.000004', 15000.0000000, 16000.0000000, 1000.0000000, NULL, NULL, NULL, '2019-07-23 15:51:40', '2019-07-23 15:51:40');
-INSERT INTO "public"."cashier_transactions" VALUES (6, 2, NULL, '31.07.19.000005', 90000.0000000, 100000.0000000, 10000.0000000, NULL, NULL, NULL, '2019-07-31 14:21:45', '2019-07-31 14:21:45');
+INSERT INTO "public"."cashier_transactions" VALUES (1, 1, NULL, '12.06.19.000001', 60000.00, 60000.00, NULL, NULL, NULL, NULL, '2019-06-12 18:41:41', '2019-06-12 18:41:41');
+INSERT INTO "public"."cashier_transactions" VALUES (2, 2, NULL, '13.06.19.000001', 35000.00, 40000.00, 5000.00, NULL, NULL, NULL, '2019-06-13 10:59:21', '2019-06-13 10:59:21');
+INSERT INTO "public"."cashier_transactions" VALUES (3, 2, NULL, '02.07.19.000002', 50000.00, 50000.00, NULL, NULL, NULL, NULL, '2019-07-02 13:38:27', '2019-07-02 13:38:27');
+INSERT INTO "public"."cashier_transactions" VALUES (4, 2, NULL, '02.07.19.000003', 75000.00, 75000.00, NULL, NULL, NULL, NULL, '2019-07-02 13:40:07', '2019-07-02 13:40:07');
+INSERT INTO "public"."cashier_transactions" VALUES (5, 2, NULL, '23.07.19.000004', 15000.00, 16000.00, 1000.00, NULL, NULL, NULL, '2019-07-23 15:51:40', '2019-07-23 15:51:40');
+INSERT INTO "public"."cashier_transactions" VALUES (6, 2, NULL, '31.07.19.000005', 90000.00, 100000.00, 10000.00, NULL, NULL, NULL, '2019-07-31 14:21:45', '2019-07-31 14:21:45');
 
 
 
 -- ----------------------------
 -- Records of cashier_transaction_details
 -- ----------------------------
-INSERT INTO "public"."cashier_transaction_details" VALUES (1, 1, 2, 2, 0.0000000, 30000.0000000, '2019-06-12 18:41:41', '2019-06-12 18:41:41');
-INSERT INTO "public"."cashier_transaction_details" VALUES (2, 1, 3, 2, 10000.0000000, 30000.0000000, '2019-06-12 18:41:41', '2019-06-12 18:41:41');
-INSERT INTO "public"."cashier_transaction_details" VALUES (3, 2, 2, 1, 0.0000000, 15000.0000000, '2019-06-13 10:59:21', '2019-06-13 10:59:21');
-INSERT INTO "public"."cashier_transaction_details" VALUES (4, 2, 3, 1, 0.0000000, 20000.0000000, '2019-06-13 10:59:21', '2019-06-13 10:59:21');
-INSERT INTO "public"."cashier_transaction_details" VALUES (5, 3, 2, 2, 0.0000000, 30000.0000000, '2019-07-02 13:38:27', '2019-07-02 13:38:27');
-INSERT INTO "public"."cashier_transaction_details" VALUES (6, 3, 3, 1, 0.0000000, 20000.0000000, '2019-07-02 13:38:27', '2019-07-02 13:38:27');
-INSERT INTO "public"."cashier_transaction_details" VALUES (7, 4, 2, 1, 0.0000000, 15000.0000000, '2019-07-02 13:40:07', '2019-07-02 13:40:07');
-INSERT INTO "public"."cashier_transaction_details" VALUES (8, 4, 3, 3, 0.0000000, 60000.0000000, '2019-07-02 13:40:07', '2019-07-02 13:40:07');
-INSERT INTO "public"."cashier_transaction_details" VALUES (9, 5, 2, 1, 0.0000000, 15000.0000000, '2019-07-23 15:51:40', '2019-07-23 15:51:40');
-INSERT INTO "public"."cashier_transaction_details" VALUES (10, 6, 2, 2, 0.0000000, 30000.0000000, '2019-07-31 14:21:45', '2019-07-31 14:21:45');
-INSERT INTO "public"."cashier_transaction_details" VALUES (11, 6, 3, 3, 0.0000000, 60000.0000000, '2019-07-31 14:21:45', '2019-07-31 14:21:45');
+INSERT INTO "public"."cashier_transaction_details" VALUES (1, 1, 2, 2, 0.00, 30000.00, '2019-06-12 18:41:41', '2019-06-12 18:41:41');
+INSERT INTO "public"."cashier_transaction_details" VALUES (2, 1, 3, 2, 10000.00, 30000.00, '2019-06-12 18:41:41', '2019-06-12 18:41:41');
+INSERT INTO "public"."cashier_transaction_details" VALUES (3, 2, 2, 1, 0.00, 15000.00, '2019-06-13 10:59:21', '2019-06-13 10:59:21');
+INSERT INTO "public"."cashier_transaction_details" VALUES (4, 2, 3, 1, 0.00, 20000.00, '2019-06-13 10:59:21', '2019-06-13 10:59:21');
+INSERT INTO "public"."cashier_transaction_details" VALUES (5, 3, 2, 2, 0.00, 30000.00, '2019-07-02 13:38:27', '2019-07-02 13:38:27');
+INSERT INTO "public"."cashier_transaction_details" VALUES (6, 3, 3, 1, 0.00, 20000.00, '2019-07-02 13:38:27', '2019-07-02 13:38:27');
+INSERT INTO "public"."cashier_transaction_details" VALUES (7, 4, 2, 1, 0.00, 15000.00, '2019-07-02 13:40:07', '2019-07-02 13:40:07');
+INSERT INTO "public"."cashier_transaction_details" VALUES (8, 4, 3, 3, 0.00, 60000.00, '2019-07-02 13:40:07', '2019-07-02 13:40:07');
+INSERT INTO "public"."cashier_transaction_details" VALUES (9, 5, 2, 1, 0.00, 15000.00, '2019-07-23 15:51:40', '2019-07-23 15:51:40');
+INSERT INTO "public"."cashier_transaction_details" VALUES (10, 6, 2, 2, 0.00, 30000.00, '2019-07-31 14:21:45', '2019-07-31 14:21:45');
+INSERT INTO "public"."cashier_transaction_details" VALUES (11, 6, 3, 3, 0.00, 60000.00, '2019-07-31 14:21:45', '2019-07-31 14:21:45');
 
 
 -- ----------------------------
 -- Records of purchasing_orders
 -- ----------------------------
-INSERT INTO "public"."purchasing_orders" VALUES (9, 'PO020719000001', 1, 1, 617500.0000000, 't', NULL, '2019-07-02 15:21:22', '2019-07-24 14:13:03');
-INSERT INTO "public"."purchasing_orders" VALUES (10, 'PO120719000001', 1, 1, 665000.0000000, 'f', NULL, '2019-07-12 16:24:49', '2019-07-24 14:18:26');
+INSERT INTO "public"."purchasing_orders" VALUES (9, 'PO020719000001', 1, 1, 617500.00, 't', NULL, '2019-07-02 15:21:22', '2019-07-24 14:13:03');
+INSERT INTO "public"."purchasing_orders" VALUES (10, 'PO120719000001', 1, 1, 665000.00, 'f', NULL, '2019-07-12 16:24:49', '2019-07-24 14:18:26');
 
 
 
 -- ----------------------------
 -- Records of purchasing_order_details
 -- ----------------------------
-INSERT INTO "public"."purchasing_order_details" VALUES (8, 9, 3, 10, 180000.0000000, '2019-07-02 16:43:04', '2019-07-02 16:43:04');
-INSERT INTO "public"."purchasing_order_details" VALUES (9, 9, 2, 15, 187500.0000000, '2019-07-02 16:43:04', '2019-07-02 16:43:04');
-INSERT INTO "public"."purchasing_order_details" VALUES (10, 9, 2, 20, 250000.0000000, '2019-07-02 16:43:04', '2019-07-02 16:43:04');
-INSERT INTO "public"."purchasing_order_details" VALUES (11, 10, 3, 30, 540000.0000000, '2019-07-12 16:24:49', '2019-07-12 16:24:49');
-INSERT INTO "public"."purchasing_order_details" VALUES (12, 10, 2, 10, 125000.0000000, '2019-07-12 16:24:49', '2019-07-12 16:24:49');
+INSERT INTO "public"."purchasing_order_details" VALUES (8, 9, 3, 10, 180000.00, '2019-07-02 16:43:04', '2019-07-02 16:43:04');
+INSERT INTO "public"."purchasing_order_details" VALUES (9, 9, 2, 15, 187500.00, '2019-07-02 16:43:04', '2019-07-02 16:43:04');
+INSERT INTO "public"."purchasing_order_details" VALUES (10, 9, 2, 20, 250000.00, '2019-07-02 16:43:04', '2019-07-02 16:43:04');
+INSERT INTO "public"."purchasing_order_details" VALUES (11, 10, 3, 30, 540000.00, '2019-07-12 16:24:49', '2019-07-12 16:24:49');
+INSERT INTO "public"."purchasing_order_details" VALUES (12, 10, 2, 10, 125000.00, '2019-07-12 16:24:49', '2019-07-12 16:24:49');
 
 -- ---------------------
 
 -- ----------------------------
 -- Records of purchasing_order_receives
 -- ----------------------------
-INSERT INTO "public"."purchasing_order_receives" VALUES (1, 'PO020719000001', 1, 8, 180000.0000000, '2019-07-24 14:13:03', '2019-07-24 14:13:03');
-INSERT INTO "public"."purchasing_order_receives" VALUES (2, 'PO020719000001', 1, 9, 187500.0000000, '2019-07-24 14:13:03', '2019-07-24 14:13:03');
-INSERT INTO "public"."purchasing_order_receives" VALUES (3, 'PO020719000001', 1, 10, 250000.0000000, '2019-07-24 14:13:03', '2019-07-24 14:13:03');
+INSERT INTO "public"."purchasing_order_receives" VALUES (1, 'PO020719000001', 1, 8, 180000.00, '2019-07-24 14:13:03', '2019-07-24 14:13:03');
+INSERT INTO "public"."purchasing_order_receives" VALUES (2, 'PO020719000001', 1, 9, 187500.00, '2019-07-24 14:13:03', '2019-07-24 14:13:03');
+INSERT INTO "public"."purchasing_order_receives" VALUES (3, 'PO020719000001', 1, 10, 250000.00, '2019-07-24 14:13:03', '2019-07-24 14:13:03');
 
 -- -------------------------
 -- ----------------------------
 -- Records of purchasing_order_returns
 -- ----------------------------
-INSERT INTO "public"."purchasing_order_returns" VALUES (1, 'PO120719000001', 1, 11, 540000.0000000, '2019-07-24 14:18:26', '2019-07-24 14:18:26');
-INSERT INTO "public"."purchasing_order_returns" VALUES (2, 'PO120719000001', 1, 12, 125000.0000000, '2019-07-24 14:18:26', '2019-07-24 14:18:26');
+INSERT INTO "public"."purchasing_order_returns" VALUES (1, 'PO120719000001', 1, 11, 540000.00, '2019-07-24 14:18:26', '2019-07-24 14:18:26');
+INSERT INTO "public"."purchasing_order_returns" VALUES (2, 'PO120719000001', 1, 12, 125000.00, '2019-07-24 14:18:26', '2019-07-24 14:18:26');
 
 
 -- ----------------------------

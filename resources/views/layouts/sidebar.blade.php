@@ -20,7 +20,10 @@
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Open Cashier</h5>
+        <h5 class="modal-title">
+            Open Cashier 
+        </h5>
+        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
@@ -31,8 +34,10 @@
             <div class="m-portlet__body">   
                 <div class="form-group m-form__group row">
                     <div class="col-lg-6">
-                        <label>Shift</label>
-                        <input type="text" name="m-shift-info" class="form-control m-input" disabled>
+                        <label>
+                            Shift
+                        </label>
+                        <input type="text" name="m-shift-info" class="form-control m-input" disabled data-container="body" data-toggle="m-popover" data-placement="top" data-content="Last shift auto selected when there is no matching time" data-original-title="" title="">
                         <input type="hidden" name="m-shift-id" class="form-control m-input">
                     </div>
                     <div class="col-lg-6">
@@ -156,6 +161,7 @@
             var $username    = $('input[name=m-cashier-username]');
             var $password    = $('input[name=m-cashier-password]');
             var shift        = {!! $shift !!};
+            console.log(shift)
             var idCashiers   = {!! $id_cashiers !!}; // if any opened cashier
             var owner        = {{ \Auth::user()->is_owner }};
             var emailEmp     = jQuery.isEmptyObject(idCashiers) === true ? '' : idCashiers.employee.email;

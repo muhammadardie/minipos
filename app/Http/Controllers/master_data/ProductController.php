@@ -268,7 +268,9 @@ class ProductController extends Controller
                                     'products.name',
                                     'brands.name AS brand_name',
                                     'product_categories.name AS product_category_name',
-                                    'products.code'
+                                    'products.code',
+                                    'products.cost',
+                                    'products.price',
                                 ])
                                 ->join('product_categories', 'product_categories.id', '=', 'products.product_category_id')
                                 ->join('brands', 'brands.id', '=', 'products.brand_id')
@@ -282,6 +284,12 @@ class ProductController extends Controller
                 return Datatables::of($product)
                                     ->addColumn('action', function ($product) use($controller,$route,$permission,$remark) {
                                         return \Yajra_datatable::generateButton($controller,$route,$product,$permission,$remark);
+                                    })
+                                    ->editColumn('cost', function($row){
+                                        return 'Rp '. \Helper::number_formats($row->cost, 'view', 0);
+                                    })
+                                    ->editColumn('price', function($row){
+                                        return 'Rp '. \Helper::number_formats($row->price, 'view', 0);
                                     })
                                     ->rawColumns(['action']) // to html
                                     ->make(true);

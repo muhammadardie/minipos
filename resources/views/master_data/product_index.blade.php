@@ -35,6 +35,8 @@
                                     <th>Category</th>
                                     <th>Brand</th>
                                     <th>Code</th>
+                                    <th>Cost</th>
+                                    <th>Price</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -64,6 +66,8 @@
                 {data: 'product_category_name', name:'product_categories.name'},
                 {data: 'brand_name', name:'brands.name'},
                 {data: 'code', name:'products.code'},
+                {data: 'cost', name:'products.cost'},
+                {data: 'price', name:'products.price'},
                 {data: 'action', orderable:false, searchable: false},
             ],
             "drawCallback": function(settings) {

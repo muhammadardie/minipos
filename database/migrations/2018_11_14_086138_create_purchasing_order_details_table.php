@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('purchasing_order_id');
             $table->integer('product_id');
             $table->integer('qty');
-            $table->decimal('total', 20,7);
+            $table->decimal('total', 20,2);
             $table->timestamps();
 
             // purchasing_order_id foreign tbl:purchasing_orders 

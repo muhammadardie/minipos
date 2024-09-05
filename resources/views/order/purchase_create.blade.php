@@ -122,7 +122,7 @@
         </div>
     </div>
 
-{!! JsValidator::formRequest('App\Http\Requests\purchasing\Purchase_orderRequest', '#purchase_order_create') !!}
+{!! JsValidator::formRequest('App\Http\Requests\order\Purchase_orderRequest', '#purchase_order_create') !!}
 
     <script type="text/javascript">
         $(document).ready(function(){

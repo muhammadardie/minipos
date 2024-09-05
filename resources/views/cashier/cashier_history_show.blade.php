@@ -55,7 +55,7 @@
                                     <h5>Paper Money</h5>
                                     @foreach(json_decode($cashier->papers_qty) as $paper)
                                         <br />
-                                        <label>{{ $paper->name }}</label>
+                                        <label>{{ \Helper::number_formats($paper->name, 'view', 0) }}</label>
                                         <input type="text" class="form-control m-input" value="{{ $paper->value }} "disabled>
                                     @endforeach
                                 </div>
@@ -63,7 +63,7 @@
                                     <h5>Coin Money</h5>
                                     @foreach(json_decode($cashier->coins_qty) as $coin)
                                         <br />
-                                        <label>{{ $coin->name }}</label>
+                                        <label>{{ \Helper::number_formats($coin->name, 'view', 0) }}</label>
                                         <input type="text" class="form-control m-input" value="{{ $coin->value }} "disabled>
                                     @endforeach
                                 </div>

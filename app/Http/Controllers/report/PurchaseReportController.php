@@ -58,7 +58,7 @@ class PurchaseReportController extends Controller
         $products    = $this->getProductByDate($startDate, $endDate);
         
 
-        return view($this->folder.'.'.$this->controller.'_'.$this->function, compact('purchases', 'products', 'purchase_transaction', 'grand_total', 'total', 'startDate', 'endDate'));
+        return view($this->folder.'.'.$this->controller.'_'.$this->function, compact('purchases', 'products', 'grand_total', 'total', 'startDate', 'endDate'));
     }
 
     /**

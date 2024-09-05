@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('po_number', 30);
             $table->integer('employee_id');
             $table->integer('purchasing_order_detail_id');
-            $table->decimal('total', 20,7);
+            $table->decimal('total', 20,2);
             $table->timestamps();
 
             // purchasing_order_id foreign tbl:purchasing_orders 

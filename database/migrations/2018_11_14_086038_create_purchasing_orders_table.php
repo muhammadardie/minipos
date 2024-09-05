@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('po_number', 30);
             $table->integer('employee_id');
             $table->integer('supplier_id');
-            $table->decimal('total', 20,7)->nullable();
+            $table->decimal('total', 20,2)->nullable();
             $table->boolean('approved')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();

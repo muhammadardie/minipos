@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('cashier_transaction_id');
             $table->integer('product_id');
             $table->integer('qty');
-            $table->decimal('discount', 20,7)->nullable();
-            $table->decimal('total', 20,7);
+            $table->decimal('discount', 20,2)->nullable();
+            $table->decimal('total', 20,2);
             $table->timestamps();
 
             // cashier_transaction_id foreign tbl:cashier_transactions 

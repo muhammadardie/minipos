@@ -18,10 +18,10 @@ return new class extends Migration
             $table->integer('cashier_id');
             $table->integer('customer_id')->nullable();
             $table->string('invoice', 30); // 18.11.00028
-            $table->decimal('bill_amount', 20,7);
-            $table->decimal('pay_amount', 20,7);
-            $table->decimal('change', 20,7)->nullable();
-            $table->decimal('discount', 20,7)->nullable();
+            $table->decimal('bill_amount', 20,2);
+            $table->decimal('pay_amount', 20,2);
+            $table->decimal('change', 20,2)->nullable();
+            $table->decimal('discount', 20,2)->nullable();
             $table->string('email_receipt', 255)->nullable();
             $table->string('description', 255)->nullable();
             $table->timestamps();
