@@ -2,22 +2,14 @@
 
 namespace App\Models\cashier;
 
-// revision log
-use Venturecraft\Revisionable\Revisionable;
+use Illuminate\Database\Eloquent\Model;
 use App\Traits\Scopes;
 
-class Cashier_transaction_detail extends Revisionable
+class Cashier_transaction_detail extends Model
 {
     use Scopes;
 
-    public $table 		= 'cashier_transaction_details';
-
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
+    public $table = 'cashier_transaction_details';
 
     public function cashier_transaction()
     {

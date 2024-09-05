@@ -2,22 +2,14 @@
 
 namespace App\Models\master_data;
 
-// revision log
-use Venturecraft\Revisionable\Revisionable;
+use \Illuminate\Database\Eloquent\Model;
 use App\Traits\Scopes;
 
-class Province extends Revisionable
+class Province extends Model
 {
     use Scopes;
 
-    public $table 		= 'provinces';
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
-
+    public $table = 'provinces';
 
     public function regencies()
     {

@@ -145,7 +145,7 @@
                                             <div class="col-lg-8 col-sm-6">
                                                 <div class="fileinput fileinput-exists" data-provides="fileinput">
                                                     <div class="fileinput-preview thumbnail" style="width: 170px; height: 150px;">
-                                                        <img src="{{ \Helper::getImage('employee',$emp->photo) }}" alt=""> 
+                                                        <img src="{{ $emp->photo }}" alt=""> 
                                                         {{-- {!! $response !!} --}}
                                                     </div>
                                                     <div>

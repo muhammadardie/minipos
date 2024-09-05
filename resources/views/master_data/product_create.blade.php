@@ -161,6 +161,7 @@
                                     <div class="col-md-12 my_form">
                                         <div class="form-group m-form__group row {{ $errors->has('storage') ? 'has-error' :'' }}">
                                             <label class="col-form-label col-lg-4 col-sm-6">
+                                                <span style="color:red" title="Wajib diisi">*</span>
                                                 Storage
                                             </label>
                                             <div class="col-lg-8 col-sm-6">
@@ -285,6 +286,7 @@
                 if(is_form_valid == true){
                     $('button[name="simpan"]').attr('disabled', 'disabled');
                     $('#execute-loading').css({'visibility': 'visible'});
+                    return true;
                 }
             });
 

@@ -1,10 +1,8 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateRevisionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +11,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('revisions', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('revisions', function ($table) {
+            $table->bigIncrements('id');
             $table->string('revisionable_type');
-            $table->integer('revisionable_id');
-            $table->integer('user_id')->nullable();
+            $table->unsignedBigInteger('revisionable_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('key');
             $table->text('old_value')->nullable();
             $table->text('new_value')->nullable();
@@ -32,8 +30,8 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::drop('revisions');
+        Schema::dropIfExists('revisions');
     }
-};
+}

@@ -2,21 +2,14 @@
 
 namespace App\Models\master_data;
 
-// revision log
-use Venturecraft\Revisionable\Revisionable;
+use \Illuminate\Database\Eloquent\Model;
 use App\Traits\Scopes;
 
-class Shift extends Revisionable
+class Shift extends Model
 {
     use Scopes;
     
     public $table       = 'shifts';
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
 
     public function cashiers()
     {

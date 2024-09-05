@@ -61,7 +61,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!--end::Vendor Scripts -->  
         <script src="{{ asset('assets/app/js/my-script.js') }}"></script>   
         
-        <link rel="shortcut icon" href="{{ \Helper::getImage('template','icon.png',20,20) }}" /> 
+        <link rel="shortcut icon" href="{{ asset('icon.png') }}" /> 
         <style>
         header {
                 background-color: #34bfa3;

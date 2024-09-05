@@ -2,21 +2,14 @@
 
 namespace App\Models\master_data;
 
-// revision log
-use Venturecraft\Revisionable\Revisionable;
+use \Illuminate\Database\Eloquent\Model;
 use App\Traits\Scopes;
 
-class Unit extends Revisionable
+class Unit extends Model
 {
     use Scopes;
 
-    public $table       = 'units';
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
+    public $table = 'units';
 
     public function products()
     {

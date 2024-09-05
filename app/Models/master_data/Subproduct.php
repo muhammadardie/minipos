@@ -2,21 +2,14 @@
 
 namespace App\Models\master_data;
 
-// revision log
-use Venturecraft\Revisionable\Revisionable;
+use \Illuminate\Database\Eloquent\Model;
 use App\Traits\Scopes;
 
-class Subproduct extends Revisionable
+class Subproduct extends Model
 {
     use Scopes;
     
     public $table       = 'subproducts';
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
 
     public function product()
     {

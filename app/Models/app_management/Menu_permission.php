@@ -4,20 +4,10 @@ namespace App\Models\app_management;
 
 use Illuminate\Database\Eloquent\Model;
 
-// revision log
-use Venturecraft\Revisionable\Revisionable;
-
-class Menu_permission extends Revisionable
+class Menu_permission extends Model
 {
-    public $table 		= "menu_permission";
+    public $table = "menu_permission";
 
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
-    
     /**
     * Get permission_name(show,create,edit,destroy) for MenuMiddleware
     */

@@ -4,20 +4,9 @@ namespace App\Models\app_management;
 
 use Illuminate\Database\Eloquent\Model;
 
-// revision log
-use Venturecraft\Revisionable\Revisionable;
-
-class User_role extends Revisionable
+class User_role extends Model
 {
-	public $table 		= "user_role";
-
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
-
+	public $table = "user_role";
 
     /**
     * Get role detail (role name) for MenuMiddleware

@@ -55,7 +55,7 @@
                                     <span class="m-topbar__welcome">Hello,&nbsp;</span> 
                                     <span class="m-topbar__username">{{ \Auth::user()->employee->first_name.' '.\Auth::user()->employee->last_name }}</span> 
                                     <span class="m-topbar__userpic">    
-                                        <img src="{{ \Helper::getImage('employee',\Auth::user()->employee->photo,50,50) }}" class="m--img-rounded m--marginless" alt=""/>
+                                        <img src="{{ \Auth::user()->employee->photo }}" class="m--img-rounded m--marginless" alt=""/>
                                     </span>
                                     <span class="m-topbar__username m--hide">{{ \Auth::user()->employee->first_name.' '.\Auth::user()->employee->last_name }}</span>
                                 </a>
@@ -65,7 +65,7 @@
                                         <div class="m-dropdown__header m--align-center" style="background: url({{ asset('assets/app/media/img/misc/user_profile_bg.jpg') }}); background-size: cover;">
                                             <div class="m-card-user m-card-user--skin-light">
                                                 <div class="m-card-user__pic">
-                                                    <img src="{{ \Helper::getImage('employee',\Auth::user()->employee->photo,100,100) }}" class="m--img-rounded m--marginless" alt=""/>
+                                                    <img src="{{ \Auth::user()->employee->photo }}" class="m--img-rounded m--marginless" alt=""/>
                                                     <!--
                                                     <span class="m-type m-type--lg m--bg-danger"><span class="m--font-light">S<span><span>
                                                     -->

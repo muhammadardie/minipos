@@ -3,20 +3,15 @@
 namespace App\Models\master_data;
 
 // revision log
-use Venturecraft\Revisionable\Revisionable;
 use App\Traits\Scopes;
+use \Illuminate\Database\Eloquent\Model;
 
-class Product extends Revisionable
+class Product extends Model
 {
     use Scopes;
 
-    public $table       = 'products';
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
+    public $table = 'products';
+    protected $fillable = ['image'];
 
     public function product_category()
     {

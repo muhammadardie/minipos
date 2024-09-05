@@ -61,7 +61,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!--end::Vendor Scripts -->  
         <script src="{{ asset('assets/app/js/my-script.js') }}"></script>   
         
-        <link rel="shortcut icon" href="{{ \Helper::getImage('template','icon.png',20,20) }}" /> 
+        <link rel="shortcut icon" href="{{ asset('icon.png') }}" /> 
         <style>
             body{
                 /*font-family: 'Ubuntu Condensed', sans-serif;
@@ -169,7 +169,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     @foreach($products as $product)
                         <div class="gallery" data-id="{{ $product->id }}" data-category="{{ $product->product_category->id }}" data-brand="{{ $product->brand->id }}" data-code="{{ $product->code}}" data-price="{{ $product->price }}" data-stock="{{ $product->stock }}" data-original-stock="{{ $product->stock }}">
                           <a>
-                            <img src="{{ \Helper::getImage('product',$product->image) }}" alt="{{ $product->name}}" data-skin="dark" data-toggle="m-tooltip" data-placement="top" title="Stock : {{ $product->stock }}">
+                            <img src="{{ $product->image }}" alt="{{ $product->name}}" data-skin="dark" data-toggle="m-tooltip" data-placement="top" title="Stock : {{ $product->stock }}">
                           </a>
                           <div class="desc">{{ strlen($product->name) > 12 ? substr($product->name,0,12)."..." : $product->name }}</div>
                         </div>

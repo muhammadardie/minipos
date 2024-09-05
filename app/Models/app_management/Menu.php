@@ -4,19 +4,9 @@ namespace App\Models\app_management;
 
 use Illuminate\Database\Eloquent\Model;
 
-// revision log
-use Venturecraft\Revisionable\Revisionable;
-
-class Menu extends Revisionable
+class Menu extends Model
 {
-    public $table 		= 'menus';
-
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
+    public $table = 'menus';
 
     /**
     * Create Menu Navbar (from bottom to top)

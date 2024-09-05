@@ -2,20 +2,12 @@
 
 namespace App\Models\order;
 
-// revision log
-use Venturecraft\Revisionable\Revisionable;
+use \Illuminate\Database\Eloquent\Model;
 use App\Traits\Scopes;
 
-class Purchase_order_return extends Revisionable
+class Purchase_order_return extends Model
 {
     use Scopes;
 
-    public $table       = 'purchasing_order_returns';
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
-
+    public $table = 'purchasing_order_returns';
 }

@@ -204,7 +204,7 @@
                                             <div class="col-lg-8 col-sm-6">
                                                 <div class="fileinput fileinput-exists" data-provides="fileinput">
                                                     <div class="fileinput-preview thumbnail" style="width: 170px; height: 150px;">
-                                                        <img src="{{ \Helper::getImage('product',$product->image) }}" alt=""> 
+                                                        <img src="{{ $product->image }}" alt=""> 
                                                         {{-- {!! $response !!} --}}
                                                     </div>
                                                     <div>
@@ -259,7 +259,8 @@
         </div>
     </div>
 
-{!! JsValidator::formRequest('App\Http\Requests\master_data\ProductRequest', '#product_edit') !!}
+    
+    {!! JsValidator::formRequest('App\Http\Requests\master_data\ProductRequest', '#product_edit') !!}
 
     <script type="text/javascript">
         $(document).ready(function(){
@@ -289,7 +290,10 @@
                 if(is_form_valid == true){
                     $('button[name="simpan"]').attr('disabled', 'disabled');
                     $('#execute-loading').css({'visibility': 'visible'});
+
+                    return true;
                 }
+                console.log(is_form_valid)
             });
 
             <?= \Helper::date_formats('$("input[name=\'release_date\']")', 'js') ?>

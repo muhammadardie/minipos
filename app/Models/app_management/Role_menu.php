@@ -4,20 +4,9 @@ namespace App\Models\app_management;
 
 use Illuminate\Database\Eloquent\Model;
 
-// revision log
-use Venturecraft\Revisionable\Revisionable;
-
-class Role_menu extends Revisionable
+class Role_menu extends Model
 {
-    public $table 		= 'role_menu';
-
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
-    
+    public $table = 'role_menu';
     
     /**
     * Show in Role menu datatable

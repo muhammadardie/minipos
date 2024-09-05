@@ -3,23 +3,17 @@
 namespace App\Models\emp_management;
 
 // revision log
-use Venturecraft\Revisionable\Revisionable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
 use App\Traits\Scopes;
+use \Illuminate\Database\Eloquent\Model;
 
-class Employee extends Revisionable
+class Employee extends Model
 {
     use Scopes;
 
-    public $table 		= 'employees';
-
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
+    public $table = 'employees';
+    protected $fillable = ['photo'];
 
     public function getFullnameAttribute()
     {

@@ -6,11 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use Route;
-use URL;
 use DB;
 use Lang;
-use File;
-use Illuminate\Support\Facades\Storage;
 use Yajra\Datatables\Datatables;
 use App\Http\Requests\master_data\ProductRequest;
 use App\Models\master_data\Unit;
@@ -18,6 +15,7 @@ use App\Models\master_data\Supplier;
 use App\Models\master_data\Product_category;
 use App\Models\master_data\Product;
 use App\Models\master_data\Brand;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class ProductController extends Controller
 {
@@ -30,9 +28,10 @@ class ProductController extends Controller
         $route_name = explode('.', Route::currentRouteName());
         if(count($route_name) < 3) die('route not match');
 
-        $this->folder       = $route_name[0];
-        $this->controller   = $route_name[1];
-        $this->function     = $route_name[2];
+        $this->folder     = $route_name[0];
+        $this->controller = $route_name[1];
+        $this->function   = $route_name[2];
+        $this->imagePath  = 'minipos_product';
     }
 
     /**
@@ -90,11 +89,13 @@ class ProductController extends Controller
             $product->save();
 
             if ($request->hasFile('image')) {
-                $image                        = $request->file('image');
-                $destinationPath              = 'product';
-                $imagename                    = 'PRODUCT_' . $product->id . '_'. time() . '.' . $image->getClientOriginalExtension();
-                $product->image               = $imagename;
+                $image          = $request->file('image');
+                $imagename      = 'PRODUCT_' . $product->id . '_'. time() . '.' . $image->getClientOriginalExtension();
+                $product->image = $imagename;
                 $product->save();
+
+                $uploaded = $image->storeOnCloudinaryAs($this->imagePath, $imagename);
+                $product->update(['image' => $uploaded->getSecurePath()]);
             }
 
             DB::commit();
@@ -104,15 +105,12 @@ class ProductController extends Controller
             $success_trans = false;
 
             // error page
-            abort(404);
+            throw $e;
             //abort(403, $e->getMessage());
         }
 
 
         if ($success_trans == true) {
-            if(isset($destinationPath)) {
-                Storage::putFileAs($destinationPath,$image, $imagename);
-            }
 
             $route_index = $this->folder.'.'.$this->controller.'.index';
             return redirect()->route($route_index)->with('alert-success', Lang::get('db.saved'));
@@ -128,7 +126,7 @@ class ProductController extends Controller
     public function show($product_id)
     {
         $product = Product::find($product_id);
-        $image   = \Helper::getImage('product',$product->image);
+        $image   = $product->image;
 
         return view($this->folder.'.'.$this->controller.'_'.$this->function,
                     compact('product', 'image')
@@ -182,12 +180,19 @@ class ProductController extends Controller
             $product->save();
 
             if ($request->hasFile('image')) {
-                $image           = $request->file('image');
-                $destinationPath = 'product';
-                $oldImage        = $product->image;      
-                $imagename       = 'PRODUCT_' . $product->id . '_'. time() . '.' . $image->getClientOriginalExtension();
-                $product->image      = $imagename;
+                // DELETE OLD IMAGE
+                $oldImage = $product->image;
+                $publicId = pathinfo($oldImage, PATHINFO_FILENAME);
+                Cloudinary::destroy($this->imagePath . '/' . $publicId);
+
+                // UPLOAD NEW IMAGE
+                $image          = $request->file('image');
+                $imagename      = 'PRODUCT_' . $product->id . '_'. time() . '.' . $image->getClientOriginalExtension();
+                $product->image = $imagename;
                 $product->save();
+
+                $uploaded = $image->storeOnCloudinaryAs($this->imagePath, $imagename);
+                $product->update(['image' => $uploaded->getSecurePath()]);
             }
 
             DB::commit();
@@ -202,10 +207,6 @@ class ProductController extends Controller
         }
 
         if ($success_trans == true) {
-            if(isset($destinationPath)) {
-                Storage::delete($destinationPath.'/'.$oldImage);
-                Storage::putFileAs($destinationPath,$image, $imagename);
-            }
             $route_index = $this->folder.'.'.$this->controller.'.index';
             return redirect()->route($route_index)->with('alert-success', Lang::get('db.updated'));
         }
@@ -223,6 +224,13 @@ class ProductController extends Controller
             $product->deleted_at   = date('Y-m-d H:i:s');
             $product->user_deleted = \Auth::id();
             $product->save();
+            
+            if($product->image) {
+                // DELETE IMAGE
+                $oldImage = $product->image;
+                $publicId = pathinfo($oldImage, PATHINFO_FILENAME);
+                Cloudinary::destroy($this->imagePath . '/' . $publicId);
+            }
 
             DB::commit();
             $success_trans = true;

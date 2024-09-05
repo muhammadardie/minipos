@@ -2,20 +2,12 @@
 
 namespace App\Models\master_data;
 
-// revision log
-use Venturecraft\Revisionable\Revisionable;
+use \Illuminate\Database\Eloquent\Model;
 use App\Traits\Scopes;
 
-class Customer extends Revisionable
+class Customer extends Model
 {
     use Scopes;
 
-    public $table       = 'customers';
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
-
+    public $table = 'customers';
 }

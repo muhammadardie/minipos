@@ -3,7 +3,6 @@ namespace App\Helpers;
 
 use DB;
 use Route;
-use Storage;
 use App\Models\master_data\Virtual_account;
 
 class Helper
@@ -261,23 +260,6 @@ class Helper
         } else {
             return null;
         }
-    }
-
-    /**
-    * get image(base64) using intervention from cached(redis) or original source
-    *
-    * @param $folder | folder where store image ex:employee
-    * @param $name   | image name ex:EMPLOYEE_1_12070213.jpg
-    * @param $width  | width that want to used default 150px
-    * @param $height | height that want to used 150px
-    * @return image(base64) from cached(redis) or original source
-    */
-    public static function getImage($folder,$name,$width=150,$height=150){
-        $name        = $name == null ? 'noimage' : $name;
-        $exists      = Storage::exists($folder.'/'.$name);
-        $src         = $exists ? \Storage::get($folder.'/'.$name) : \Storage::get('default.jpeg');
-
-        return $src;
     }
 
     /**

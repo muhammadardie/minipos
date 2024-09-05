@@ -26,58 +26,27 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         $id = ($this->product) ? $this->product : 0;
+        
+        $rules = [
+            'product_category' => ['required', 'integer', 'min:0'],
+            'brand'            => ['required', 'integer', 'min:0'],
+            'unit'             => ['required', 'integer', 'min:0'],
+            'supplier'         => ['required', 'integer', 'min:0'],
+            'name'             => $id == 0 ?
+                ['required', 'bail', 'max:100', 'unique:products,name,'.$id.',id,deleted_at,NULL'] :
+                ['required','no_js_validation', 'bail', 'max:100', 'unique:products,name,'.$id.',id,deleted_at,NULL'],
+            'code'             =>  $id == 0 ?
+                ['required', 'alpha_num', 'max:30', 'regex:/^\S*$/u','unique:products,code,'.$id.',id,deleted_at,NULL'] :
+                ['required','no_js_validation', 'alpha_num', 'max:30', 'regex:/^\S*$/u','unique:products,code,'.$id.',id,deleted_at,NULL'],
+            'cost'             => ['required'],
+            'release_date'     => ['required','date_format:"'.\Helper::date_formats('', 'date_php').'"'],
+            'price'            => ['required'],
+            'storage'          => ['required','max:255'],
+            'image'            => ['max:2000','mimes:jpg,jpeg,png'],
+            'description'      => ['max:255'],
+        ];
 
-        $returns = array();
-        if ($this->isMethod('post')) {
-            $returns = [
-                'product_category' => ['required', 'integer', 'min:0'],
-                'brand'            => ['required', 'integer', 'min:0'],
-                'unit'             => ['required', 'integer', 'min:0'],
-                'supplier'         => ['required', 'integer', 'min:0'],
-                'name'             => ['required','bail', 'max:100', 'unique:products,name,'.$id.',id,deleted_at,NULL'],
-                'code'             => ['required','alpha_num', 'max:30', 'regex:/^\S*$/u','unique:products,code,'.$id.',id,deleted_at,NULL'],
-                'cost'             => ['required'],
-                'release_date'     => ['required','date_format:"'.\Helper::date_formats('', 'date_php').'"'],
-                'price'            => ['required'],
-                'storage'          => ['nullable','max:255'],
-                'image'            => ['max:2000','mimes:jpg,jpeg,png'],
-                'description'      => ['max:255'],
-            ];
-        } // update data (backend validation)
-        elseif ($this->isMethod('patch')) {
-            $returns = [
-                'product_category' => ['required', 'integer', 'min:0'],
-                'brand'            => ['required', 'integer', 'min:0'],
-                'unit'             => ['required', 'integer', 'min:0'],
-                'supplier'         => ['required', 'integer', 'min:0'],
-                'name'             => ['required','bail', 'max:100', 'unique:products,name,'.$id.',id,deleted_at,NULL'],
-                'code'             => ['required','alpha_num', 'max:30', 'regex:/^\S*$/u','unique:products,code,'.$id.',id,deleted_at,NULL'],
-                'cost'             => ['required'],
-                'release_date'     => ['required','date_format:"'.\Helper::date_formats('', 'date_php').'"'],
-                'price'            => ['required'],
-                'storage'          => ['nullable','max:255'],
-                'image'            => ['max:2000','mimes:jpg,jpeg,png'],
-                'description'      => ['max:255'],
-            ];
-
-        } else {
-            $returns = [
-                'product_category' => ['required', 'integer', 'min:0'],
-                'brand'            => ['required', 'integer', 'min:0'],
-                'unit'             => ['required', 'integer', 'min:0'],
-                'supplier'         => ['required', 'integer', 'min:0'],
-                'name'             => ['required','bail', 'max:100', 'unique:products,name,'.$id.',id,deleted_at,NULL'],
-                'code'             => ['required','alpha_num', 'max:30', 'regex:/^\S*$/u','unique:products,code,'.$id.',id,deleted_at,NULL'],
-                'cost'             => ['required'],
-                'release_date'     => ['required','date_format:"'.\Helper::date_formats('', 'date_php').'"'],
-                'price'            => ['required'],
-                'storage'          => ['nullable','max:255'],
-                'image'            => ['max:2000','mimes:jpg,jpeg,png'],
-                'description'      => ['max:255'],
-            ];
-        }
-
-        return $returns;
+        return $rules;
     }
 
 }

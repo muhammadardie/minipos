@@ -2,22 +2,15 @@
 
 namespace App\Models\master_data;
 
-// revision log
-use Venturecraft\Revisionable\Revisionable;
+use \Illuminate\Database\Eloquent\Model;
 use App\Traits\Scopes;
 
-class Discount_price extends Revisionable
+class Discount_price extends Model
 {
     use Scopes;
     
     public $table       = 'discount_price';
     public $timestamps  = false;
-    // revision log
-    protected $revisionCreationsEnabled = true;
-    public static function boot()
-    {
-        parent::boot();
-    }
 
     public function discount()
     {

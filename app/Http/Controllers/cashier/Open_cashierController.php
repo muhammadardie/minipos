@@ -64,7 +64,7 @@ class Open_cashierController extends Controller
                 $a['brand_id'] = $value->brand_id;
                 $a['code']     = $value->code;
                 $a['price']    = $value->price;
-                $a['image']    = \Helper::getImage('product',$value->image);
+                $a['image']    = $value->image;
                 $a['desc']     = strlen($value->name) > 12 ? substr($value->name,0,12)."..." : $value->name;
                 array_push($arr_product, $a);
             }

@@ -10,13 +10,13 @@ use URL;
 use DB;
 use Lang;
 use File;
-use Illuminate\Support\Facades\Storage;
 use Yajra\Datatables\Datatables;
 use App\Http\Requests\emp_management\EmployeeRequest;
 use App\Models\master_data\Outlet;
 use App\Models\emp_management\Identity;
 use App\Models\emp_management\Employee;
 use App\Models\app_management\Users;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class EmployeeController extends Controller
 {
@@ -29,9 +29,10 @@ class EmployeeController extends Controller
         $route_name = explode('.', Route::currentRouteName());
         if(count($route_name) < 3) die('route not match');
 
-        $this->folder       = $route_name[0];
-        $this->controller   = $route_name[1];
-        $this->function     = $route_name[2];
+        $this->folder     = $route_name[0];
+        $this->controller = $route_name[1];
+        $this->function   = $route_name[2];
+        $this->imagePath  = 'minipos_employee';
     }
 
     /**
@@ -90,11 +91,13 @@ class EmployeeController extends Controller
             $emp->save();
 
             if ($request->hasFile('photo')) {
-                $image                        = $request->file('photo');
-                $destinationPath              = 'employee';
-                $imagename                    = 'EMPLOYEE_' . $emp->id . '_'. time() . '.' . $image->getClientOriginalExtension();
-                $emp->photo                   = $imagename;
+                $image      = $request->file('photo');
+                $imagename  = 'EMPLOYEE_' . $emp->id . '_'. time() . '.' . $image->getClientOriginalExtension();
+                $emp->photo = $imagename;
                 $emp->save();
+
+                $uploaded = $image->storeOnCloudinaryAs($this->imagePath, $imagename);
+                $emp->update(['photo' => $uploaded->getSecurePath()]);
             }
 
             DB::commit();
@@ -104,16 +107,12 @@ class EmployeeController extends Controller
             $success_trans = false;
 
             // error page
-            abort(404);
+            throw $e;
             //abort(403, $e->getMessage());
         }
 
 
         if ($success_trans == true) {
-            if(isset($destinationPath)) {
-                Storage::putFileAs($destinationPath,$image, $imagename);
-            }
-
             $route_index = $this->folder.'.'.$this->controller.'.index';
             return redirect()->route($route_index)->with('alert-success', Lang::get('db.saved'));
         }
@@ -128,7 +127,7 @@ class EmployeeController extends Controller
     public function show($emp_id)
     {
         $emp   = Employee::find($emp_id);
-        $photo = \Helper::getImage('employee',$emp->photo);
+        $photo = $emp->photo;
 
         return view($this->folder.'.'.$this->controller.'_'.$this->function,
                     compact('emp', 'photo')
@@ -188,12 +187,19 @@ class EmployeeController extends Controller
             $emp->save();
 
             if ($request->hasFile('photo')) {
-                $image           = $request->file('photo');
-                $destinationPath = 'employee';
-                $oldPhoto        = $emp->photo;      
-                $imagename       = 'EMPLOYEE_' . $emp->id . '_'. time() . '.' . $image->getClientOriginalExtension();
-                $emp->photo      = $imagename;
+                // DELETE OLD IMAGE
+                $oldImage = $emp->photo;
+                $publicId = pathinfo($oldImage, PATHINFO_FILENAME);
+                Cloudinary::destroy($this->imagePath . '/' . $publicId);
+
+                // UPLOAD NEW IMAGE
+                $image          = $request->file('photo');
+                $imagename      = 'EMPLOYEE_1' . $emp->id . '_'. time() . '.' . $image->getClientOriginalExtension();
+                $emp->photo = $imagename;
                 $emp->save();
+
+                $uploaded = $image->storeOnCloudinaryAs($this->imagePath, $imagename);
+                $emp->update(['photo' => $uploaded->getSecurePath()]);
             }
 
             DB::commit();
@@ -203,15 +209,11 @@ class EmployeeController extends Controller
             $success_trans = false;
 
             // error page
-            abort(404);
+            throw $e;
             //abort(403, $e->getMessage());
         }
 
         if ($success_trans == true) {
-            if(isset($destinationPath)) {
-                Storage::delete($destinationPath.'/'.$oldPhoto);
-                Storage::putFileAs($destinationPath,$image, $imagename);
-            }
             $route_index = $this->folder.'.'.$this->controller.'.index';
             return redirect()->route($route_index)->with('alert-success', Lang::get('db.updated'));
         }
@@ -230,10 +232,17 @@ class EmployeeController extends Controller
             $emp->user_deleted = \Auth::id();
             $emp->save();
 
-            // find n' delete user by email
+            // find n' delete user by email`
             $user = Users::where('email', $emp->email)->first();
             if($user){
                 $user->delete();
+            }
+
+            if($emp->photo) {
+                // DELETE IMAGE
+                $oldImage = $emp->photo;
+                $publicId = pathinfo($oldImage, PATHINFO_FILENAME);
+                Cloudinary::destroy($this->imagePath . '/' . $publicId);
             }
             
             DB::commit();
