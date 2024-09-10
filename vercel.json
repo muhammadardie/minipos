@@ -2,7 +2,7 @@
     "version": 2,
       "framework": null,
     "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.7.1" }
+        "api/index.php": { "runtime": "vercel-php@0.6.2" }
     },
     "routes": [{
         "src": "/(.*)",
@@ -12,6 +12,7 @@
         "APP_ENV": "production",
         "APP_DEBUG": "true",
         "APP_URL": "https://minipos-eight.vercel.app/",
+        "APP_KEY": "base64:bC1drOWiLxxFwnj0xhpuUCfOixRfIV4HrGUCwtz7kbw=",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
