@@ -7876,7 +7876,6 @@ INSERT INTO "public"."menus" VALUES (29, 'Open Cashier', 'open_cashier', NULL, '
 INSERT INTO "public"."menus" VALUES (30, 'Close Cashier', 'close_cashier', NULL, 'cashier', 28, 2, 't', '2018-11-19 14:42:27', '2018-11-19 14:42:27');
 INSERT INTO "public"."menus" VALUES (31, 'Cashier', 'cashier', NULL, 'cashier', 28, 3, 't', '2018-11-19 14:42:50', '2018-11-19 14:42:50');
 INSERT INTO "public"."menus" VALUES (38, 'Brand', 'brand', NULL, 'master_data', 8, 6, 't', '2019-06-12 17:44:16', '2019-06-12 17:44:43');
-INSERT INTO "public"."menus" VALUES (18, 'Discounts', NULL, 'flaticon-interface-11', 'master_data', 8, 7, 't', '2018-11-19 14:22:33', '2019-06-12 17:44:43');
 INSERT INTO "public"."menus" VALUES (21, 'Products', NULL, 'flaticon-open-box', 'master_data', 8, 8, 't', '2018-11-19 14:33:32', '2019-06-12 17:44:43');
 INSERT INTO "public"."menus" VALUES (40, 'Sales', 'sales_report', NULL, 'report', 39, 1, 't', '2019-06-13 11:53:29', '2019-06-13 11:53:29');
 INSERT INTO "public"."menus" VALUES (41, 'Purchase', 'purchase_report', NULL, 'report', 39, 2, 't', '2019-06-13 11:53:57', '2019-06-13 11:53:57');
