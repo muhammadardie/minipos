@@ -14,3 +14,11 @@ Simple POS app built using laravel
 * Create a database and inform *.env*
 * `php artisan migrate --seed` to create and populate tables
 * `php artisan serve` to start the app on http://localhost:8000/
+
+## Demo
+
+URL: https://minipos.muhammadardie.tech/
+
+email: admin@localhost.com
+
+password: 123456

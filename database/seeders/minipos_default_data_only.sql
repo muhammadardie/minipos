@@ -7867,8 +7867,6 @@ INSERT INTO "public"."menus" VALUES (14, 'Outlet', 'outlet', NULL, 'master_data'
 INSERT INTO "public"."menus" VALUES (15, 'Unit', 'unit', NULL, 'master_data', 8, 3, 't', '2018-11-19 14:17:14', '2018-11-19 14:17:14');
 INSERT INTO "public"."menus" VALUES (16, 'Shift', 'shift', NULL, 'master_data', 8, 4, 't', '2018-11-19 14:17:45', '2018-11-19 14:17:45');
 INSERT INTO "public"."menus" VALUES (17, 'Supplier', 'supplier', NULL, 'master_data', 8, 5, 't', '2018-11-19 14:18:10', '2018-11-19 14:18:10');
-INSERT INTO "public"."menus" VALUES (19, 'Discount Type', 'discount_type', NULL, 'master_data', 18, 1, 't', '2018-11-19 14:24:41', '2018-11-19 14:24:41');
-INSERT INTO "public"."menus" VALUES (20, 'Discount', 'discount', NULL, 'master_data', 18, 2, 't', '2018-11-19 14:25:10', '2018-11-19 14:25:10');
 INSERT INTO "public"."menus" VALUES (22, 'Product Category', 'product_category', NULL, 'master_data', 21, 1, 't', '2018-11-19 14:34:23', '2018-11-19 14:35:08');
 INSERT INTO "public"."menus" VALUES (23, 'Product', 'product', NULL, 'master_data', 21, 3, 't', '2018-11-19 14:34:50', '2018-11-19 14:35:08');
 INSERT INTO "public"."menus" VALUES (25, 'Employee Management', NULL, 'fa fa-user-tie', 'emp_management', 0, 3, 't', '2018-11-19 14:39:03', '2018-11-19 14:39:03');
