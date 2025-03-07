@@ -17,7 +17,7 @@ Simple POS app built using laravel
 
 ## Demo
 
-URL: https://minipos.muhammadardie.tech/
+URL: https://minipos.ardie.web.id/
 
 email: admin@localhost.com
 
