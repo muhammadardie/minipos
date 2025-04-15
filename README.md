@@ -12,6 +12,7 @@ Simple POS app built using laravel
 * `cp .env.example .env`
 * `php artisan key:generate`
 * Create a database and inform *.env*
+* Setup cloudinary url in *.env*
 * `php artisan migrate --seed` to create and populate tables
 * `php artisan serve` to start the app on http://localhost:8000/
 
